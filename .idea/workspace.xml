@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e42f9770-bc20-47cc-9d05-6970a45b3497" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/controllers/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/exceptions/InvalidGameConstructionParametersException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/factories/BotPlayingStrategyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/strategies/botplayingstrategy/RandomBotPlayingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/strategies/gamewinningstrategy/OrderOneGameWinningStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NOTES.md" beforeDir="false" afterPath="$PROJECT_DIR$/NOTES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/TicTacToeGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/TicTacToeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/TicTacToeGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/strategies/botplayingstrategy/BotPlayingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/strategies/botplayingstrategy/BotPlayingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/strategies/gamewinningstrategy/GameWinningStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scaler/tictactoe/strategies/gamewinningstrategy/GameWinningStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +64,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="TicTacToeGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.scaler.tictactoe.TicTacToeGame" />
+      <module name="tictactoejan23" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scaler.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TicTacToeGame" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -71,7 +92,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673016880259</updated>
-      <workItem from="1673016881394" duration="4877000" />
+      <workItem from="1673016881394" duration="10899000" />
     </task>
     <servers />
   </component>

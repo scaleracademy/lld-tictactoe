@@ -18,7 +18,7 @@ public class TicTacToeGame {
         int dimension = scanner.nextInt();
 
         System.out.println("Will there be any bot? y/n");
-        String isBotString = scanner.nextLine();
+        String isBotString = scanner.next();
 
         List<Player> players = new ArrayList<>();
 
@@ -30,20 +30,20 @@ public class TicTacToeGame {
 
         for (int i = 0; i < toIterate; ++i) {
             System.out.println("What is the name of player " + i);
-            String playerName = scanner.nextLine();
+            String playerName = scanner.next();
 
             System.out.println("What is the char of player " + i);
-            String playerSymbol = scanner.nextLine();
+            String playerSymbol = scanner.next();
 
             players.add(new Player(playerName, playerSymbol.charAt(0), PlayerType.HUMAN));
         }
 
         if (isBotString.equals("y")) {
             System.out.println("What is the name of bot?");
-            String playerName = scanner.nextLine();
+            String playerName = scanner.next();
 
             System.out.println("What is the char of bot?");
-            String playerSymbol = scanner.nextLine();
+            String playerSymbol = scanner.next();
 
             players.add(new Bot(playerName, playerSymbol.charAt(0), BotDifficultyLevel.EASY));
         }
@@ -59,7 +59,7 @@ public class TicTacToeGame {
 
             System.out.println("Does anyone want to undo? y/n");
 
-            String input = "";
+            String input = scanner.next();
 
             if (input.equals("y")) {
                 gameController.undo(game);
@@ -70,7 +70,7 @@ public class TicTacToeGame {
 
         System.out.println("Game has ended. Result was: ");
         if (!game.getGameStatus().equals(GameStatus.DRAW)) {
-            System.out.println("Winner is: .");
+            System.out.println("Winner is: ." + gameController.getWinner(game).getName());
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.scaler.tictactoe.models;
 
 import com.scaler.tictactoe.exceptions.InvalidGameConstructionParametersException;
+import com.scaler.tictactoe.strategies.gamewinningstrategy.GameWinningStrategy;
+import com.scaler.tictactoe.strategies.gamewinningstrategy.OrderOneGameWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,24 @@ public class Game {
     private List<Move> moves;
     private GameStatus gameStatus;
     private int nextPlayerIndex;
+    private GameWinningStrategy gameWinningStrategy;
+    private Player winner;
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
+    public GameWinningStrategy getGameWinningStrategy() {
+        return gameWinningStrategy;
+    }
+
+    public void setGameWinningStrategy(GameWinningStrategy gameWinningStrategy) {
+        this.gameWinningStrategy = gameWinningStrategy;
+    }
 
     private Game() {
     }
@@ -21,9 +41,45 @@ public class Game {
 
     public void undo() {}
 
-    public void makeNextMove() {}
+    public void makeNextMove() {
+        Player toMovePlayer = players.get(nextPlayerIndex);
 
-    public void displayBoard() {}
+        System.out.println("It is " + players.get(nextPlayerIndex).getName() + "'s turn.");
+
+        Move move = toMovePlayer.decideMove(this.board);
+
+        // validate move
+
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+
+        System.out.println("Move happened at: " +
+                row + ", " + col + ".");
+
+        board.getBoard().get(row).get(col).setCellState(CellState.FILLED);
+        board.getBoard().get(row).get(col).setPlayer(players.get(nextPlayerIndex));
+
+        Move finalMove = new Move(
+                players.get(nextPlayerIndex),
+                board.getBoard().get(row).get(col)
+        );
+
+        this.moves.add(finalMove);
+
+        if (gameWinningStrategy.checkWinner(
+                board, players.get(nextPlayerIndex), finalMove.getCell()
+        )) {
+            gameStatus = GameStatus.ENDED;
+            winner = players.get(nextPlayerIndex);
+        }
+
+        nextPlayerIndex += 1;
+        nextPlayerIndex %= players.size();
+    }
+
+    public void displayBoard() {
+        this.board.display();
+    }
 
     public Board getBoard() {
         return board;
@@ -109,7 +165,8 @@ public class Game {
             game.setPlayers(players);
             game.setMoves(new ArrayList<>());
             game.setBoard(new Board(dimension));
-            game.setNextPlayerIndex(-1);
+            game.setNextPlayerIndex(0);
+            game.setGameWinningStrategy(new OrderOneGameWinningStrategy(dimension));
 
             return game;
         }
